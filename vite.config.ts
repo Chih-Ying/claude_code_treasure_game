@@ -4,6 +4,7 @@
   import path from 'path';
 
   export default defineConfig({
+    base: '/claude_code_treasure_game/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -56,5 +57,8 @@
     server: {
       port: 3000,
       open: true,
+      proxy: {
+        '/api': 'http://localhost:4000',
+      },
     },
   });
